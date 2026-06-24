@@ -1,0 +1,40 @@
+GET /clients/1/overview     <- main one: portfolio + matched themes in one response
+GET /clients/1/portfolio    <- just holdings
+GET /clients/1/themes       <- just matched themes
+GET /clients                <- list everyone
+GET /news/recent?limit=10   <- recent headlines for context
+
+-----------------------
+
+Run:
+    uvicorn api:app --reload --port 8000
+
+Docs:
+    http://localhost:8000/docs
+	
+-------------------------
+
+GET /clients/{client_id}/overview (224–234)
+Lines	What	Why
+224–234
+Primary endpoint for mid-tier app
+Single call returns both client (portfolios + holdings) and matched_themes. Reduces round-trips.
+-------------------------
+
+"""
+models.py  –  SQLAlchemy ORM for the Finance Pipeline
+Entity hierarchy
+────────────────
+NewsArticle  →  MarketEvent  →  Trend  →  Theme
+                                            └→  SectorTag (sector + sentiment)
+Client / Portfolio side
+────────────────────────
+Client → Account → Portfolio → Holding → Security → SectorMaster
+"""
+--------------------------------
+
+ClientOutlook
+table ✦ NEW
+saved per client
+
+step5 runs in pipeline.py (cached, scheduled) - api.py only reads the saved outlook, never calls GPT-4o live
