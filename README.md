@@ -266,4 +266,10 @@ Step 5 is the final layer: it takes everything built in Steps 1–3 — a client
 
 Home Page:
 
-![home](./img/front_end_1.png)
+![home](./imgs/front_end_1.png)
+![](./imgs/2.png)
+![](./imgs/3.png)
+![](./imgs/4.png)
+![](./imgs/5.png)
+![](./imgs/6.png)
+![](./imgs/7.png)
