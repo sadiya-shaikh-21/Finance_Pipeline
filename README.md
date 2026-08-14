@@ -262,3 +262,8 @@ Step 5 is the final layer: it takes everything built in Steps 1–3 — a client
         ▼
    Mid-tier App
 ```
+# Frondend Output
+
+Home Page:
+
+![home](./img/front_end_1.png)
